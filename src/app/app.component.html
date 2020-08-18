@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <button (click)="open()">
+    Abrir
+  </button>
+  <div *ngIf="abrirTreeview" class="container">
+    <input type="text" name="filter" id="filter" placeholder="Filtro" (keyup)="searchInList()" [(ngModel)]="treeDt" />
+    <div class="treeview-container" *ngIf="!result" >
+      <app-treeview
+        [data]="treeData"        
+        (onClick)="click($event)"
+        (onChange)="onChange($event)"
+      >
+      </app-treeview>
+    </div>
+
+    <span class="not-found" *ngIf="result">Nenhuma categoria encontrada.</span>
+  </div>
+</div>

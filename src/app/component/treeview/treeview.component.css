@@ -1,0 +1,48 @@
+.treeview {
+    color: #71778f;
+    font-weight: bold;
+    list-style-type: none;
+    width: 100%;
+}
+
+.treeview-children {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.treeview span {
+    cursor: pointer;
+    display: inline-block;
+    margin: 5px auto;
+    text-align: center;
+}
+
+.treeview span i {
+    width: 12px;
+}
+
+.treeview .node-opened {
+    transform: rotate(90deg);
+}
+
+.treeview .no-parent {
+    padding-left: 12px;
+}
+
+.treeview input {
+    cursor: pointer;
+    margin: 0 10px 0 5px;
+}
+
+.treeview input[type="checkbox"]:checked + span {
+    color: #006F3B;
+}
+
+.app-treeview-children .treeview {
+    background-color: #F6F5F5;
+}
+
+.app-treeview-children .treeview .treeview-children {
+    border: none;
+    padding: 5px 20px;
+}

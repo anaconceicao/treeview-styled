@@ -1,0 +1,32 @@
+<div class="treeview" *ngIf="nodes.length">
+  <div class="treeview-children" *ngFor="let node of nodes">
+    <span
+      *ngIf="node[childrenAttr].length"
+      [ngClass]="{ 'node-opened': !node[collapseAttr] }"
+      (click)="click(node)"
+      ><i class="fa fa-caret-right" aria-hidden="true"></i
+    ></span>
+    <span class="no-parent" *ngIf="!node[childrenAttr].length"></span>
+
+    <input
+      type="checkbox"
+      [(ngModel)]="node[selectAttr]"
+      [indeterminate]="node[inDeterminateAttr]"
+      (change)="onModelChange(node)"
+    />
+
+    <span [ngClass]="{ parent: node[childrenAttr].length }">
+      {{ node.NAME }}
+    </span>
+
+    <app-treeview
+      *ngIf="node[childrenAttr].length"
+      class="app-treeview-children"
+      [data]="node[childrenAttr]"
+      [prepareData]="false"
+      [ngbCollapse]="node[collapseAttr]"
+      (onChange)="change($event)"
+    >
+    </app-treeview>
+  </div>
+</div>
